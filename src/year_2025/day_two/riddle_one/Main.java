@@ -24,13 +24,10 @@ public class Main {
       }
     }
 
-    for( Long faultyId : faultyIds) {
+    for (Long faultyId : faultyIds) {
       sum += faultyId;
     }
 
     System.out.println(sum);
-
-
   }
-
 }

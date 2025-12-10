@@ -10,7 +10,7 @@ import java.util.List;
 
 public class IdSelector {
 
-  public static List<String> generateAllIds(){
+  public static List<String> generateAllIds() {
     File input = new File("src/year_2025/day_two/PuzzleInput.txt");
     String line;
     List<String> ids = new ArrayList<>();

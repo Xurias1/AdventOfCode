@@ -28,13 +28,11 @@ public class Main {
 
     for (DialRotation rotation : rotations) {
       dial.rotateDial(rotation.getDirection(), rotation.getRotation());
-      if (dial.getDialPosition() == 0){
+      if (dial.getDialPosition() == 0) {
         hitsOnZero++;
       }
     }
 
     System.out.println(hitsOnZero);
-
   }
-
 }

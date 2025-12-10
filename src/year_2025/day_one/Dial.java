@@ -1,13 +1,16 @@
 package year_2025.day_one;
 
 public class Dial {
+
   private int dialPosition = 50;
 
   public Dial() {
   }
 
   public int rotateDial(char direction, int distance) {
-    if (distance < 0) throw new IllegalArgumentException("distance must be >= 0");
+    if (distance < 0) {
+      throw new IllegalArgumentException("distance must be >= 0");
+    }
     int start = dialPosition;
     int firstK;
     if (direction == 'R') {
@@ -17,7 +20,9 @@ public class Dial {
     } else {
       throw new IllegalArgumentException("Invalid direction: " + direction);
     }
-    if (firstK == 0) firstK = 100;
+    if (firstK == 0) {
+      firstK = 100;
+    }
 
     int hits = 0;
     if (firstK <= distance) {
@@ -29,10 +34,6 @@ public class Dial {
 
     return hits;
   }
-
-
-
-
 
   public int getDialPosition() {
     return dialPosition;

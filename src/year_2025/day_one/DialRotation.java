@@ -1,6 +1,7 @@
 package year_2025.day_one;
 
 public class DialRotation {
+
   private final char direction;
   private final int rotation;
 

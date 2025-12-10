@@ -19,7 +19,7 @@ public class Main {
           fullDivisors.add(i);
         }
       }
-      for( int divisor : fullDivisors) {
+      for (int divisor : fullDivisors) {
         faulty = checkRepetetive(id, divisor);
         if (faulty) {
           faultyIds.add(Long.parseLong(id));
@@ -28,24 +28,24 @@ public class Main {
       }
     }
 
-    for( Long faultyId : faultyIds) {
+    for (Long faultyId : faultyIds) {
       sum += faultyId;
     }
 
     System.out.println(sum);
   }
 
-  private static boolean checkRepetetive(String id, int substringCount){
+  private static boolean checkRepetetive(String id, int substringCount) {
     List<String> idSubstrings = new ArrayList<>();
     String remainingIDSubstring = id;
 
-    while (remainingIDSubstring.length() >= id.length()/substringCount){
-      idSubstrings.add(remainingIDSubstring.substring(0, id.length()/substringCount));
-      remainingIDSubstring = remainingIDSubstring.substring(id.length()/substringCount);
+    while (remainingIDSubstring.length() >= id.length() / substringCount) {
+      idSubstrings.add(remainingIDSubstring.substring(0, id.length() / substringCount));
+      remainingIDSubstring = remainingIDSubstring.substring(id.length() / substringCount);
     }
 
     for (int i = 1; i < idSubstrings.size(); i++) {
-      if (!(idSubstrings.get(i).equals(idSubstrings.getFirst()))){
+      if (!(idSubstrings.get(i).equals(idSubstrings.getFirst()))) {
         return false;
       }
     }
