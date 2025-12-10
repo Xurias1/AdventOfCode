@@ -7,30 +7,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import year_2025.day_two.IdSelector;
 
 public class Main {
 
   public static void main(String[] args) {
-    File input = new File("src/year_2025/day_two/PuzzleInput.txt");
-    String line;
-    List<String> ids = new ArrayList<>();
+    List<String> ids = IdSelector.generateAllIds();
     List<Long> faultyIds = new ArrayList<>();
     long sum = 0;
-
-    try (BufferedReader br = new BufferedReader(new FileReader(input))) {
-      line = br.readLine();
-    } catch (IOException e) {
-      throw new RuntimeException(e);
-    }
-
-    List<String> ranges = new ArrayList<>(Arrays.asList(line.split(",")));
-
-    for (String range : ranges) {
-      String[] rangeArray = range.split("-");
-      for (Long i = Long.parseLong(rangeArray[0]); i <= Long.parseLong(rangeArray[1]); i++) {
-        ids.add(i.toString());
-      }
-    }
 
     for (String id : ids) {
       String firstHalf = id.substring(0, id.length() / 2);
