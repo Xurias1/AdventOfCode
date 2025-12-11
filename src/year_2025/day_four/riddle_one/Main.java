@@ -11,7 +11,7 @@ public class Main {
 
   public static void main(String[] args) {
     File input = new File("src/year_2025/day_four/PuzzleInput.txt");
-    List<List<Character>> paperStorage =  new ArrayList<>();
+    List<List<Character>> paperStorage = new ArrayList<>();
     int accesibleRolls = 0;
 
     try (BufferedReader br = new BufferedReader(new FileReader(input))) {
@@ -19,7 +19,7 @@ public class Main {
       while ((line = br.readLine()) != null) {
         char[] positions = line.toCharArray();
         paperStorage.add(new ArrayList<>());
-        for (char position : positions){
+        for (char position : positions) {
           paperStorage.getLast().add(position);
         }
       }
@@ -30,7 +30,7 @@ public class Main {
     for (int x = 0; x < paperStorage.size(); x++) {
       for (int y = 0; y < paperStorage.get(x).size(); y++) {
         if (paperStorage.get(x).get(y) == '@'
-            && getPaperrollCount(getSurrounding(paperStorage, x, y)) < 4){
+            && getPaperrollCount(getSurrounding(paperStorage, x, y)) < 4) {
           accesibleRolls++;
         }
       }
@@ -40,14 +40,14 @@ public class Main {
   }
 
   private static List<Character> getSurrounding(List<List<Character>> paperStorage, int xPos,
-      int yPos){
+      int yPos) {
     List<Character> surrounding = new ArrayList<>();
     for (int x = xPos - 1; x <= xPos + 1; x++) {
       for (int y = yPos - 1; y <= yPos + 1; y++) {
-        if(x < 0 || x > paperStorage.size() - 1 || y < 0 || y > paperStorage.size() - 1){
+        if (x < 0 || x > paperStorage.size() - 1 || y < 0 || y > paperStorage.size() - 1) {
           surrounding.add('.');
           continue;
-        }else if (x == xPos && y == yPos) {
+        } else if (x == xPos && y == yPos) {
           continue;
         }
         surrounding.add(paperStorage.get(x).get(y));
@@ -56,14 +56,13 @@ public class Main {
     return surrounding;
   }
 
-  private static int getPaperrollCount(List<Character> surrounding){
+  private static int getPaperrollCount(List<Character> surrounding) {
     int count = 0;
-    for(char c : surrounding){
-      if(c == '@'){
+    for (char c : surrounding) {
+      if (c == '@') {
         count++;
       }
     }
     return count;
   }
-
 }
